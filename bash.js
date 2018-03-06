@@ -3,6 +3,7 @@ const pwd = require('./pwd')
 const ls = require('./ls')
 const cat = require('./cat')
 const prompt = require('./prompt')
+const curl = require('./curl')
 
 // The stdin 'data' event fires after a user types in a line
 process.stdin.on('data', data => {
@@ -21,6 +22,10 @@ process.stdin.on('data', data => {
 
     case 'cat':
       cat(args)
+      break
+
+    case 'curl':
+      curl(args[0])
       break
   }
   prompt()
